@@ -1,0 +1,681 @@
+---
+permalink: /upbound-provider-github/namespaced/actions/v1alpha1/repositoryPermissions/
+---
+
+# actions.v1alpha1.repositoryPermissions
+
+"RepositoryPermissions is the Schema for the RepositoryPermissionss API. Enables and manages Actions permissions for a GitHub repository"
+
+## Index
+
+* [`fn new(name)`](#fn-new)
+* [`obj metadata`](#obj-metadata)
+  * [`fn withAnnotations(annotations)`](#fn-metadatawithannotations)
+  * [`fn withAnnotationsMixin(annotations)`](#fn-metadatawithannotationsmixin)
+  * [`fn withClusterName(clusterName)`](#fn-metadatawithclustername)
+  * [`fn withCreationTimestamp(creationTimestamp)`](#fn-metadatawithcreationtimestamp)
+  * [`fn withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)`](#fn-metadatawithdeletiongraceperiodseconds)
+  * [`fn withDeletionTimestamp(deletionTimestamp)`](#fn-metadatawithdeletiontimestamp)
+  * [`fn withFinalizers(finalizers)`](#fn-metadatawithfinalizers)
+  * [`fn withFinalizersMixin(finalizers)`](#fn-metadatawithfinalizersmixin)
+  * [`fn withGenerateName(generateName)`](#fn-metadatawithgeneratename)
+  * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
+  * [`fn withLabels(labels)`](#fn-metadatawithlabels)
+  * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
+  * [`fn withName(name)`](#fn-metadatawithname)
+  * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
+  * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
+  * [`fn withOwnerReferencesMixin(ownerReferences)`](#fn-metadatawithownerreferencesmixin)
+  * [`fn withResourceVersion(resourceVersion)`](#fn-metadatawithresourceversion)
+  * [`fn withSelfLink(selfLink)`](#fn-metadatawithselflink)
+  * [`fn withUid(uid)`](#fn-metadatawithuid)
+* [`obj spec`](#obj-spec)
+  * [`fn withManagementPolicies(managementPolicies)`](#fn-specwithmanagementpolicies)
+  * [`fn withManagementPoliciesMixin(managementPolicies)`](#fn-specwithmanagementpoliciesmixin)
+  * [`obj spec.forProvider`](#obj-specforprovider)
+    * [`fn withAllowedActions(allowedActions)`](#fn-specforproviderwithallowedactions)
+    * [`fn withAllowedActionsConfig(allowedActionsConfig)`](#fn-specforproviderwithallowedactionsconfig)
+    * [`fn withAllowedActionsConfigMixin(allowedActionsConfig)`](#fn-specforproviderwithallowedactionsconfigmixin)
+    * [`fn withEnabled(enabled)`](#fn-specforproviderwithenabled)
+    * [`fn withRepository(repository)`](#fn-specforproviderwithrepository)
+    * [`obj spec.forProvider.allowedActionsConfig`](#obj-specforproviderallowedactionsconfig)
+      * [`fn withGithubOwnedAllowed(githubOwnedAllowed)`](#fn-specforproviderallowedactionsconfigwithgithubownedallowed)
+      * [`fn withPatternsAllowed(patternsAllowed)`](#fn-specforproviderallowedactionsconfigwithpatternsallowed)
+      * [`fn withPatternsAllowedMixin(patternsAllowed)`](#fn-specforproviderallowedactionsconfigwithpatternsallowedmixin)
+      * [`fn withVerifiedAllowed(verifiedAllowed)`](#fn-specforproviderallowedactionsconfigwithverifiedallowed)
+    * [`obj spec.forProvider.repositoryRef`](#obj-specforproviderrepositoryref)
+      * [`fn withName(name)`](#fn-specforproviderrepositoryrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderrepositoryrefwithnamespace)
+      * [`obj spec.forProvider.repositoryRef.policy`](#obj-specforproviderrepositoryrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderrepositoryrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderrepositoryrefpolicywithresolve)
+    * [`obj spec.forProvider.repositorySelector`](#obj-specforproviderrepositoryselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforproviderrepositoryselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforproviderrepositoryselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforproviderrepositoryselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderrepositoryselectorwithnamespace)
+      * [`obj spec.forProvider.repositorySelector.policy`](#obj-specforproviderrepositoryselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderrepositoryselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderrepositoryselectorpolicywithresolve)
+  * [`obj spec.initProvider`](#obj-specinitprovider)
+    * [`fn withAllowedActions(allowedActions)`](#fn-specinitproviderwithallowedactions)
+    * [`fn withAllowedActionsConfig(allowedActionsConfig)`](#fn-specinitproviderwithallowedactionsconfig)
+    * [`fn withAllowedActionsConfigMixin(allowedActionsConfig)`](#fn-specinitproviderwithallowedactionsconfigmixin)
+    * [`fn withEnabled(enabled)`](#fn-specinitproviderwithenabled)
+    * [`fn withRepository(repository)`](#fn-specinitproviderwithrepository)
+    * [`obj spec.initProvider.allowedActionsConfig`](#obj-specinitproviderallowedactionsconfig)
+      * [`fn withGithubOwnedAllowed(githubOwnedAllowed)`](#fn-specinitproviderallowedactionsconfigwithgithubownedallowed)
+      * [`fn withPatternsAllowed(patternsAllowed)`](#fn-specinitproviderallowedactionsconfigwithpatternsallowed)
+      * [`fn withPatternsAllowedMixin(patternsAllowed)`](#fn-specinitproviderallowedactionsconfigwithpatternsallowedmixin)
+      * [`fn withVerifiedAllowed(verifiedAllowed)`](#fn-specinitproviderallowedactionsconfigwithverifiedallowed)
+    * [`obj spec.initProvider.repositoryRef`](#obj-specinitproviderrepositoryref)
+      * [`fn withName(name)`](#fn-specinitproviderrepositoryrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderrepositoryrefwithnamespace)
+      * [`obj spec.initProvider.repositoryRef.policy`](#obj-specinitproviderrepositoryrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderrepositoryrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderrepositoryrefpolicywithresolve)
+    * [`obj spec.initProvider.repositorySelector`](#obj-specinitproviderrepositoryselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitproviderrepositoryselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitproviderrepositoryselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitproviderrepositoryselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderrepositoryselectorwithnamespace)
+      * [`obj spec.initProvider.repositorySelector.policy`](#obj-specinitproviderrepositoryselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderrepositoryselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderrepositoryselectorpolicywithresolve)
+  * [`obj spec.providerConfigRef`](#obj-specproviderconfigref)
+    * [`fn withKind(kind)`](#fn-specproviderconfigrefwithkind)
+    * [`fn withName(name)`](#fn-specproviderconfigrefwithname)
+  * [`obj spec.writeConnectionSecretToRef`](#obj-specwriteconnectionsecrettoref)
+    * [`fn withName(name)`](#fn-specwriteconnectionsecrettorefwithname)
+
+## Fields
+
+### fn new
+
+```ts
+new(name)
+```
+
+new returns an instance of RepositoryPermissions
+
+## obj metadata
+
+"ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create."
+
+### fn metadata.withAnnotations
+
+```ts
+withAnnotations(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+### fn metadata.withAnnotationsMixin
+
+```ts
+withAnnotationsMixin(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withClusterName
+
+```ts
+withClusterName(clusterName)
+```
+
+"The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request."
+
+### fn metadata.withCreationTimestamp
+
+```ts
+withCreationTimestamp(creationTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withDeletionGracePeriodSeconds
+
+```ts
+withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)
+```
+
+"Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only."
+
+### fn metadata.withDeletionTimestamp
+
+```ts
+withDeletionTimestamp(deletionTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withFinalizers
+
+```ts
+withFinalizers(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+### fn metadata.withFinalizersMixin
+
+```ts
+withFinalizersMixin(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withGenerateName
+
+```ts
+withGenerateName(generateName)
+```
+
+"GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency"
+
+### fn metadata.withGeneration
+
+```ts
+withGeneration(generation)
+```
+
+"A sequence number representing a specific generation of the desired state. Populated by the system. Read-only."
+
+### fn metadata.withLabels
+
+```ts
+withLabels(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+### fn metadata.withLabelsMixin
+
+```ts
+withLabelsMixin(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withName
+
+```ts
+withName(name)
+```
+
+"Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+
+### fn metadata.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace defines the space within which each name must be unique. An empty namespace is equivalent to the \"default\" namespace, but \"default\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\n\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"
+
+### fn metadata.withOwnerReferences
+
+```ts
+withOwnerReferences(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+### fn metadata.withOwnerReferencesMixin
+
+```ts
+withOwnerReferencesMixin(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withResourceVersion
+
+```ts
+withResourceVersion(resourceVersion)
+```
+
+"An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency"
+
+### fn metadata.withSelfLink
+
+```ts
+withSelfLink(selfLink)
+```
+
+"SelfLink is a URL representing this object. Populated by the system. Read-only.\n\nDEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release."
+
+### fn metadata.withUid
+
+```ts
+withUid(uid)
+```
+
+"UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+
+## obj spec
+
+"RepositoryPermissionsSpec defines the desired state of RepositoryPermissions"
+
+### fn spec.withManagementPolicies
+
+```ts
+withManagementPolicies(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+### fn spec.withManagementPoliciesMixin
+
+```ts
+withManagementPoliciesMixin(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider
+
+
+
+### fn spec.forProvider.withAllowedActions
+
+```ts
+withAllowedActions(allowedActions)
+```
+
+"The permissions policy that controls the actions that are allowed to run. Can be one of: all, local_only, or selected.\nThe permissions policy that controls the actions that are allowed to run. Can be one of: 'all', 'local_only', or 'selected'."
+
+### fn spec.forProvider.withAllowedActionsConfig
+
+```ts
+withAllowedActionsConfig(allowedActionsConfig)
+```
+
+"Sets the actions that are allowed in an repository. Only available when allowed_actions = selected. See Allowed Actions Config below for details.\nSets the actions that are allowed in an repository. Only available when 'allowed_actions' = 'selected'."
+
+### fn spec.forProvider.withAllowedActionsConfigMixin
+
+```ts
+withAllowedActionsConfigMixin(allowedActionsConfig)
+```
+
+"Sets the actions that are allowed in an repository. Only available when allowed_actions = selected. See Allowed Actions Config below for details.\nSets the actions that are allowed in an repository. Only available when 'allowed_actions' = 'selected'."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withEnabled
+
+```ts
+withEnabled(enabled)
+```
+
+"Should GitHub actions be enabled on this repository?\nShould GitHub actions be enabled on this repository."
+
+### fn spec.forProvider.withRepository
+
+```ts
+withRepository(repository)
+```
+
+"The GitHub repository\nThe GitHub repository."
+
+## obj spec.forProvider.allowedActionsConfig
+
+"Sets the actions that are allowed in an repository. Only available when allowed_actions = selected. See Allowed Actions Config below for details.\nSets the actions that are allowed in an repository. Only available when 'allowed_actions' = 'selected'."
+
+### fn spec.forProvider.allowedActionsConfig.withGithubOwnedAllowed
+
+```ts
+withGithubOwnedAllowed(githubOwnedAllowed)
+```
+
+"Whether GitHub-owned actions are allowed in the repository.\nWhether GitHub-owned actions are allowed in the repository."
+
+### fn spec.forProvider.allowedActionsConfig.withPatternsAllowed
+
+```ts
+withPatternsAllowed(patternsAllowed)
+```
+
+"Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@, monalisa/octocat@v2, monalisa/.\"\nSpecifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, 'monalisa/octocat@', 'monalisa/octocat@v2', 'monalisa/'."
+
+### fn spec.forProvider.allowedActionsConfig.withPatternsAllowedMixin
+
+```ts
+withPatternsAllowedMixin(patternsAllowed)
+```
+
+"Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@, monalisa/octocat@v2, monalisa/.\"\nSpecifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, 'monalisa/octocat@', 'monalisa/octocat@v2', 'monalisa/'."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.allowedActionsConfig.withVerifiedAllowed
+
+```ts
+withVerifiedAllowed(verifiedAllowed)
+```
+
+"Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.\nWhether actions in GitHub Marketplace from verified creators are allowed. Set to 'true' to allow all GitHub Marketplace actions by verified creators."
+
+## obj spec.forProvider.repositoryRef
+
+"Reference to a Repository in repo to populate repository."
+
+### fn spec.forProvider.repositoryRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.repositoryRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.repositoryRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.repositoryRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.repositoryRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.repositorySelector
+
+"Selector for a Repository in repo to populate repository."
+
+### fn spec.forProvider.repositorySelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.repositorySelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.repositorySelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.repositorySelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.repositorySelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.repositorySelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.repositorySelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider
+
+"THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler."
+
+### fn spec.initProvider.withAllowedActions
+
+```ts
+withAllowedActions(allowedActions)
+```
+
+"The permissions policy that controls the actions that are allowed to run. Can be one of: all, local_only, or selected.\nThe permissions policy that controls the actions that are allowed to run. Can be one of: 'all', 'local_only', or 'selected'."
+
+### fn spec.initProvider.withAllowedActionsConfig
+
+```ts
+withAllowedActionsConfig(allowedActionsConfig)
+```
+
+"Sets the actions that are allowed in an repository. Only available when allowed_actions = selected. See Allowed Actions Config below for details.\nSets the actions that are allowed in an repository. Only available when 'allowed_actions' = 'selected'."
+
+### fn spec.initProvider.withAllowedActionsConfigMixin
+
+```ts
+withAllowedActionsConfigMixin(allowedActionsConfig)
+```
+
+"Sets the actions that are allowed in an repository. Only available when allowed_actions = selected. See Allowed Actions Config below for details.\nSets the actions that are allowed in an repository. Only available when 'allowed_actions' = 'selected'."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withEnabled
+
+```ts
+withEnabled(enabled)
+```
+
+"Should GitHub actions be enabled on this repository?\nShould GitHub actions be enabled on this repository."
+
+### fn spec.initProvider.withRepository
+
+```ts
+withRepository(repository)
+```
+
+"The GitHub repository\nThe GitHub repository."
+
+## obj spec.initProvider.allowedActionsConfig
+
+"Sets the actions that are allowed in an repository. Only available when allowed_actions = selected. See Allowed Actions Config below for details.\nSets the actions that are allowed in an repository. Only available when 'allowed_actions' = 'selected'."
+
+### fn spec.initProvider.allowedActionsConfig.withGithubOwnedAllowed
+
+```ts
+withGithubOwnedAllowed(githubOwnedAllowed)
+```
+
+"Whether GitHub-owned actions are allowed in the repository.\nWhether GitHub-owned actions are allowed in the repository."
+
+### fn spec.initProvider.allowedActionsConfig.withPatternsAllowed
+
+```ts
+withPatternsAllowed(patternsAllowed)
+```
+
+"Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@, monalisa/octocat@v2, monalisa/.\"\nSpecifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, 'monalisa/octocat@', 'monalisa/octocat@v2', 'monalisa/'."
+
+### fn spec.initProvider.allowedActionsConfig.withPatternsAllowedMixin
+
+```ts
+withPatternsAllowedMixin(patternsAllowed)
+```
+
+"Specifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, monalisa/octocat@, monalisa/octocat@v2, monalisa/.\"\nSpecifies a list of string-matching patterns to allow specific action(s). Wildcards, tags, and SHAs are allowed. For example, 'monalisa/octocat@', 'monalisa/octocat@v2', 'monalisa/'."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.allowedActionsConfig.withVerifiedAllowed
+
+```ts
+withVerifiedAllowed(verifiedAllowed)
+```
+
+"Whether actions in GitHub Marketplace from verified creators are allowed. Set to true to allow all GitHub Marketplace actions by verified creators.\nWhether actions in GitHub Marketplace from verified creators are allowed. Set to 'true' to allow all GitHub Marketplace actions by verified creators."
+
+## obj spec.initProvider.repositoryRef
+
+"Reference to a Repository in repo to populate repository."
+
+### fn spec.initProvider.repositoryRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.repositoryRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.repositoryRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.repositoryRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.repositoryRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.repositorySelector
+
+"Selector for a Repository in repo to populate repository."
+
+### fn spec.initProvider.repositorySelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.repositorySelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.repositorySelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.repositorySelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.repositorySelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.repositorySelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.repositorySelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.providerConfigRef
+
+"ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured."
+
+### fn spec.providerConfigRef.withKind
+
+```ts
+withKind(kind)
+```
+
+"Kind of the referenced object."
+
+### fn spec.providerConfigRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.writeConnectionSecretToRef
+
+"WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource."
+
+### fn spec.writeConnectionSecretToRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the secret."
